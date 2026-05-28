@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>心晴日記 - 手機 APP 原型框架</title>
+  <title>Pandimo - 手機 APP 原型框架</title>
   <meta name="description" content="這是一個專為心情日記、情緒護理與生活習慣打卡設計的手機 App 高保真原型框架，支援電腦瀏覽器測試，預配置 Capacitor 打包環境。">
   <link rel="stylesheet" href="src/style.css?v=3">
 </head>
@@ -24,7 +24,7 @@
         <h2>🛠&nbsp;基礎設定與名稱定義</h2>
         <div class="form-group">
           <label for="admin-app-name">自訂手機 APP 名稱 (即時同步)</label>
-          <input type="text" id="admin-app-name" class="form-control" placeholder="請輸入名稱" value="心晴日記">
+          <input type="text" id="admin-app-name" class="form-control" placeholder="請輸入名稱" value="Pandimo">
         </div>
         <div class="form-group">
           <label for="theme-select">深淺色外觀切換</label>
@@ -105,25 +105,24 @@ npx cap sync</div>
         <div id="app-splash-screen" class="app-splash-screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #f7f6ff 0%, #e8e5ff 100%); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 80px 24px 40px 24px; box-sizing: border-box; overflow: hidden;">
           <div class="splash-glow"></div>
           <div class="splash-body" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%;">
-            <div class="splash-logo-container" style="width: 160px; height: 160px; border-radius: 36px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-sizing: border-box; background: #fff; border: 1.5px solid #e5e2f3; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(138, 124, 251, 0.15);">
+            <div class="splash-logo-container" style="width: 160px; height: 160px; border-radius: 36px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-sizing: border-box; background: #fff; border: 1.5px solid #e5e2f3; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(138, 124, 251, 0.15);">
               <img src="src/panda_mascot.png" class="splash-panda-logo" alt="Panda Mascot" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <h2 class="splash-app-name" style="font-size: 24px; font-weight: 800; margin-bottom: 8px; font-family: sans-serif;">心晴日記</h2>
-            <p class="splash-slogan" style="font-size: 12px; font-weight: 600; margin-bottom: 30px; font-family: sans-serif;">🐼 青春樹洞與情緒陪伴吉祥物 💗</p>
+            <h2 class="splash-app-name" style="font-size: 28px; font-weight: 800; margin-bottom: 24px; font-family: sans-serif; color: var(--primary-dark);">Pandimo</h2>
             <div class="splash-loading-dots" style="display: flex; gap: 6px;">
               <div class="splash-dot"></div>
               <div class="splash-dot"></div>
               <div class="splash-dot"></div>
             </div>
           </div>
-          <div class="splash-footer" style="font-size: 10px; font-weight: 600; letter-spacing: 0.5px; opacity: 0.7;">
-            <span>Powered by AI & Big Data Analytics</span>
+          <div class="splash-footer" style="font-size: 10px; font-weight: 600; letter-spacing: 0.5px; opacity: 0.5;">
+            <span>Pandimo</span>
           </div>
         </div>
         
         <!-- App General Navigation Header -->
         <div class="app-header">
-          <span class="app-title">心晴日記</span>
+          <span class="app-title">Pandimo</span>
           <div style="display: flex; align-items: center; gap: 8px;">
             <button id="btn-checkin-header" class="btn btn-secondary" style="font-size:10px; padding:4px 8px; border-radius:12px; font-weight:700;">📅 簽到</button>
             <div class="points-pill">
@@ -298,19 +297,19 @@ npx cap sync</div>
               <input type="text" id="article-search" class="search-input" placeholder="搜尋段考、暑假、學長等話題...">
             </div>
 
-            <!-- Dcard-style student board banner -->
+            <!-- Recent Hot Topics Banner -->
             <div class="articles-bigdata-banner">
               <div class="bigdata-banner-glow"></div>
               <div class="bigdata-banner-content">
-                <span class="bigdata-badge">🔥 Dcard 高中板精選</span>
-                <h3>今日全校討論度最高的熱議主題</h3>
-                <p>基於大家近期最關心的生活節奏：段考、暑輔、容貌焦慮與人際暗戀，精選出本週討論度破表的熱門貼文。💬</p>
+                <span class="bigdata-badge">🔥 近期熱門焦點</span>
+                <h3>大家最近都在關心什麼？</h3>
+                <p>關於段考、暑輔、容貌焦慮與人際暗戀，來看看大家最深切的真實心聲與討論吧。💬</p>
               </div>
             </div>
 
             <!-- Horizontal Scroll category tabs -->
             <div class="article-tags-scroll">
-              <button class="article-tab-pill" data-category="all">全部討論</button>
+              <button class="article-tab-pill" data-category="all">全部文章</button>
               <button class="article-tab-pill" data-category="課業焦慮">🏫 課業焦慮</button>
               <button class="article-tab-pill" data-category="容貌焦慮">💄 容貌焦慮</button>
               <button class="article-tab-pill" data-category="感情告白">💖 感情告白</button>
