@@ -122,6 +122,8 @@ const DEFAULT_ARTICLES = [
   {
     id: 'a1',
     category: '心靈成長',
+    badge: '🔥 本週熱議話題',
+    bigDataLabel: '💡 大數據分析：本週全校有 34.6% 用戶在日記提及「課業焦慮」與「讀不完」，此主題由 AI 情緒熱詞動態觸發生成。',
     title: '接納不完美：如何擺脫焦慮與自我懷疑',
     snippet: '在快節奏的生活中，我們常常給自己設定了過高的標準。本文為您解析如何與內心的完美主義和解，找回平靜。',
     content: '<p>我們生活在一個被「完美」包圍的時代。社群媒體上精緻的生活照、同儕的成功故事，無形中都在加劇我們的焦慮。</p><p>心理學研究顯示，適度的完美主義能推動自我提升，但過度的完美主義則會演變成一種枷鎖，導致慢性焦慮與拖延症。</p><p><b>第一步：看見內心的評判者。</b> 當你再次對自己說「我做得不夠好」時，試著像個旁觀者一樣記錄下這句話，並問問自己：如果這是我的朋友，我會用同樣苛刻的話語去指責他嗎？</p><p><b>第二步：練習「剛剛好」原則。</b> 容許自己有犯錯的空間，把每一次失敗看作是一次有趣的科學實驗，而不是對個人價值的否定。</p>',
@@ -133,6 +135,8 @@ const DEFAULT_ARTICLES = [
   {
     id: 'a2',
     category: '情緒護理',
+    badge: '✨ 本月焦點推薦',
+    bigDataLabel: '💡 大數據分析：數據顯示連續記錄日記超過 7 天的用戶，焦慮指數平均下降了 28.4%，特推薦此心靈技巧。',
     title: '寫日記的神奇魔力：把雜亂思緒整理成章',
     snippet: '心理學家證實，每天寫日記能有效降低皮質醇濃度。來看看如何透過簡單的「心情書寫」來自我療愈吧！',
     content: '<p>當我們感到焦慮或混亂時，大腦就像是一台過載的電腦，有無數個背景程式在同時運行。而寫日記，就是一次徹底的「重開機」與記憶體清理。</p><p><b>科學原理：</b> 寫作能調動我們的大腦左半球（邏輯思考），讓大腦右半球（情緒與直覺）得到放鬆與釋放。這種過程能將抽象、模糊的恐懼與焦慮具體化為文字，進而降低情緒的威脅感。</p><p><b>日記入門小技巧：</b><br>1. <b>不拘格式</b>：不需要寫出優美的散文，隨手記錄幾個關鍵詞和心情即可。<br>2. <b>誠實面對</b>：這是專專屬於你的隱密空間，無需遮掩真實的負面情緒。<br>3. <b>感恩結尾</b>：在日記結尾寫下一件微小但美好的事，有助於重新校準大腦的幸福濾鏡。</p>',
@@ -144,6 +148,8 @@ const DEFAULT_ARTICLES = [
   {
     id: 'a3',
     category: '睡眠健康',
+    badge: '🌙 夜貓放鬆指南',
+    bigDataLabel: '💡 大數據分析：近期日記中「失眠」、「睡不著」關鍵字較上週上升了 18.2%，AI 為您生成睡前降噪指南。',
     title: '失眠退散！5個睡前儀式助你一夜好眠',
     snippet: '睡眠品質直接決定了隔天的心情。透過建立科學的睡前降噪儀式，告別深夜的輾轉反側。',
     content: '<p>你是否經常躺在床上，大腦卻拼命運轉，白天沒想通的事情全在深夜湧現？這其實是因為你的自律神經還處於戰鬥狀態，未能切換至放鬆模式。</p><p>一個優質的睡前儀式能向大腦發送「可以安全入睡」的信號：</p><p><b>1. 數位排毒</b>：睡前一小時關閉手機、電腦。藍光會抑制褪黑素的分泌，讓大腦誤以為還是白天。</p><p><b>2. 調低室溫與光線</b>：微涼（約20-22度）且完全黑暗的環境最適合深度睡眠。</p><p><b>3. 氣味療愈</b>：使用薰衣草或洋甘菊精油進行擴香，這些香氣分子能直接作用於邊緣系統，舒緩緊繃的神經。</p><p><b>4. 微伸展</b>：做5分鐘溫和的瑜伽或拉伸，釋放肌肉中累積的張力。</p>',
@@ -159,8 +165,15 @@ const DEFAULT_STORE_ITEMS = [
   { id: 's2', type: 'theme', name: '深海冥想黑主題', desc: '超有質感的極致深黑護眼主題，適合深夜書寫日記的你。', price: 60, icon: '🌌', limit: '經典款' },
   { id: 's3', type: 'sticker', name: '軟萌貓咪心情貼紙包', desc: '解鎖 10 款超可愛的動態貓咪表情圖案，讓日記更生動。', price: 30, icon: '🐱', limit: '熱銷爆款' },
   { id: 's4', type: 'sticker', name: '心靈角落手繪活動標籤', desc: '解鎖 15 款精美手繪風格的生活習慣插圖，記錄更多細節。', price: 40, icon: '🎨', limit: '新品' },
-  { id: 's5', type: 'physical', name: '特調睡眠薰衣草精油', desc: '【模擬實物兌換】天然植物精萃，滴在枕邊助你快速進入深眠。', price: 120, icon: '🪻', limit: '實體療愈' },
-  { id: 's6', type: 'physical', name: '質感微光手帳筆記本', desc: '【模擬實物兌換】高質感皮質封面，用溫度文字盛裝真實的心情。', price: 150, icon: '📔', limit: '人氣周邊' }
+  
+  // High-schoolers snacks, vouchers, stationery
+  { id: 's7', type: 'snack', name: '哈瑞寶小熊軟糖分享包', desc: '【實體零食】考試讀書必備！酸甜Q彈的小熊軟糖，嚼一嚼擊退讀書瞌睡。', price: 30, icon: '🧸', limit: '高中生最愛' },
+  { id: 's8', type: 'snack', name: '極脆品客洋芋片三入組', desc: '【實體零食】洋蔥、起司、原味經典三合一，深夜解饞與同學分享神器！', price: 45, icon: '🥔', limit: '熱銷解饞' },
+  { id: 's9', type: 'food_voucher', name: '麥當勞雙層牛肉吉事堡餐券', desc: '【電子票券】憑券可兌換雙層牛肉吉事堡 + 中薯 + 中可，下課聚會首選！', price: 80, icon: '🍔', limit: '超值速食' },
+  { id: 's10', type: 'food_voucher', name: '摩斯漢堡海洋珍珠堡餐券', desc: '【電子票券】高質感必點！珍珠堡搭配靈魂冰紅茶，溫柔療癒你的胃。', price: 90, icon: '🍤', limit: '人氣首選' },
+  { id: 's11', type: 'food_voucher', name: '肯德基咔啦雞腿堡餐券', desc: '【電子票券】酥脆多汁咔啦雞腿堡 + 蛋撻 + 紅茶，考試及格的完美獎勵！', price: 85, icon: '🍗', limit: '經典必吃' },
+  { id: 's12', type: 'stationery', name: '九乘九文具/金興發 100元券', desc: '【電子票券】高中生天堂！可於全台各大門市兌換精美手帳本、原子筆或立可帶。', price: 50, icon: '✏️', limit: '學生必備' },
+  { id: 's13', type: 'stationery', name: '誠品文具 50元禮物點數', desc: '【電子票券】換一支超好寫的有質感水性鋼珠筆，寫功課心情也變美麗。', price: 35, icon: '✒️', limit: '質感文具' }
 ];
 
 // App State Core Class
@@ -195,6 +208,29 @@ class AppState {
       this.diaries = generateThreeMonthsOfDiaries();
       localStorage.setItem('teen_diaries', JSON.stringify(this.diaries));
     }
+
+    // Read comments or seed them
+    this.articleComments = JSON.parse(localStorage.getItem('teen_article_comments')) || {};
+    if (Object.keys(this.articleComments).length === 0) {
+      this.articleComments = {
+        'a1': [
+          { name: '渴望放假的貓咪', color: '#8a7cfb', text: '真的...每次考差了就覺得自己是一坨垃圾，看到這篇說要跟完美主義和解，突然有點想哭 😭', time: '1小時前' },
+          { name: '期末考求過的水豚', color: '#ff85a2', text: '段考名次出來真的超焦慮，謝謝這篇文章，今晚要來練習『剛剛好』原則了！', time: '40分鐘前' },
+          { name: '躲在棉被裡的北極熊', color: '#ffd35c', text: '高中生活每天都在跟別人比，真的好累，這篇簡直寫進心坎裡 💔', time: '10分鐘前' }
+        ],
+        'a2': [
+          { name: '數學課在睡覺的熊貓', color: '#4be3b5', text: '自從下載這個 App 開始寫日記，發現很多原本卡住的壞心情寫完就釋懷了，推推！', time: '2小時前' },
+          { name: '一口氣吃掉珍奶的企鵝', color: '#6c5ce7', text: '真的有用！我以前都覺得寫日記很浪費時間，現在每晚寫十分鐘，思緒整理完睡得好很多。', time: '1.5小時前' },
+          { name: '拿著珍奶跑百米的小鹿', color: '#e84393', text: '匿名留言討論還能領 +5 積分拿去兌換洋芋片，這個設計太懂我們學生了 XD', time: '5分鐘前' }
+        ],
+        'a3': [
+          { name: '被考試砸醒的樹懶', color: '#ff9f5c', text: '天啊，睡前真的不能滑手機！我每次一滑脆（Threads）或抖音就直接滑到半夜兩點... 😭', time: '3小時前' },
+          { name: '吃飽就犯睏的考拉', color: '#ff7474', text: '試了薰衣草精油加拉伸，昨天晚上十二點躺下去，不到十分鐘就睡著了，超神奇！', time: '1小時前' },
+          { name: '忘記帶鉛筆盒的松鼠', color: '#8a7cfb', text: '我們班最近超多人失眠的，這篇文章大數據分析也太準了吧哈哈。', time: '15分鐘前' }
+        ]
+      };
+      localStorage.setItem('teen_article_comments', JSON.stringify(this.articleComments));
+    }
   }
 
   save() {
@@ -211,6 +247,7 @@ class AppState {
     localStorage.setItem('teen_liked_articles', JSON.stringify(this.likedArticles));
     localStorage.setItem('teen_bookmarked_articles', JSON.stringify(this.bookmarkedArticles));
     localStorage.setItem('teen_redeemed_items', JSON.stringify(this.redeemedItems));
+    localStorage.setItem('teen_article_comments', JSON.stringify(this.articleComments));
   }
 
   addDiary(date, mood, activities, note) {
@@ -316,6 +353,7 @@ class AppState {
     this.likedArticles = [];
     this.bookmarkedArticles = [];
     this.redeemedItems = [];
+    this.articleComments = {}; // Re-seeds automatically on save/constructor reload
     this.save();
   }
 }
@@ -1044,8 +1082,10 @@ function renderArticles() {
         <span class="article-badge">${art.category}</span>
       </div>
       <div class="article-card-body">
+        ${art.badge ? `<span class="article-bigdata-tag">${art.badge}</span>` : ''}
         <h3 class="article-card-title">${art.title}</h3>
         <p class="article-card-snippet">${art.snippet}</p>
+        ${art.bigDataLabel ? `<div class="article-bigdata-analysis">${art.bigDataLabel}</div>` : ''}
         <div class="article-card-footer">
           <div class="article-author-info">
             <div class="article-author-avatar"></div>
@@ -1088,12 +1128,22 @@ function renderArticles() {
   });
 }
 
+const ANONYMOUS_NICKNAMES = [
+  '渴望放假的貓咪', '期期盼盼的水豚', '數學課睡覺的熊貓', '一口珍奶的企鵝', 
+  '拿珍奶跑百米的小鹿', '躲在被窩的北極熊', '看黑板發呆的樹懶', '忘記鉛筆盒的松鼠',
+  '想點滿幸運值的黑貓', '吃飽就犯睏的考拉', '北極星下的流浪貓', '喜歡做夢的獨角獸'
+];
+
+const AVATAR_COLORS = ['#8a7cfb', '#ff85a2', '#4be3b5', '#ffd35c', '#ff9f5c', '#ff7474', '#6c5ce7', '#e84393'];
+
 function openArticleDrawer(art) {
   const drawer = document.getElementById('article-detail-drawer');
   if (!drawer) return;
 
   const body = document.getElementById('article-drawer-content-box');
   if (body) {
+    let randomNickname = ANONYMOUS_NICKNAMES[Math.floor(Math.random() * ANONYMOUS_NICKNAMES.length)];
+    
     body.innerHTML = `
       <img src="${art.img}" class="article-detail-img" alt="cover">
       <div class="article-detail-meta">
@@ -1105,7 +1155,113 @@ function openArticleDrawer(art) {
       </div>
       <h2 class="article-detail-title">${art.title}</h2>
       <div class="article-detail-content">${art.content}</div>
+      
+      <hr class="drawer-divider">
+      
+      <div class="anonymous-discussion-section">
+        <h3>💬 匿名討論區 (全校匿名交流)</h3>
+        <p class="anonymous-section-desc">🔒 本區受匿名密鑰保護，為本校同學提供專屬樹洞，請放心傾訴並友善交流喔！</p>
+        
+        <div class="comments-list" id="article-comments-list">
+          <!-- Comments list -->
+        </div>
+        
+        <div class="comment-input-area">
+          <div class="nickname-generator-row">
+            <span class="random-nickname-label">🏷️ 您的隨機匿名：</span>
+            <span class="random-nickname-val" id="comment-random-nickname">${randomNickname}</span>
+            <button class="btn-refresh-nickname" id="btn-refresh-comment-nickname">🔄 換一個</button>
+          </div>
+          <div class="comment-input-box">
+            <textarea id="comment-text-input" placeholder="匿名說點什麼...（例如：看完這篇超有共鳴的！😭）"></textarea>
+            <button id="btn-comment-submit">發送</button>
+          </div>
+        </div>
+      </div>
     `;
+
+    const renderCommentsList = () => {
+      const listContainer = document.getElementById('article-comments-list');
+      if (!listContainer) return;
+      listContainer.innerHTML = '';
+      
+      const comments = state.articleComments[art.id] || [];
+      if (comments.length === 0) {
+        listContainer.innerHTML = `<p style="font-size: 11px; color: var(--text-muted); text-align: center; padding: 12px 0;">目前尚無同學留言，快來搶沙發發言吧！🎈</p>`;
+        return;
+      }
+      
+      comments.forEach(comment => {
+        const item = document.createElement('div');
+        item.className = 'comment-item';
+        
+        const firstLetter = comment.name ? comment.name.charAt(0) : '匿';
+        const color = comment.color || '#8a7cfb';
+        
+        item.innerHTML = `
+          <div class="comment-avatar" style="background-color: ${color};">${firstLetter}</div>
+          <div class="comment-body">
+            <div class="comment-header">
+              <span class="comment-nickname">${comment.name}</span>
+              <span class="comment-time">${comment.time}</span>
+            </div>
+            <div class="comment-text">${comment.text}</div>
+          </div>
+        `;
+        listContainer.appendChild(item);
+      });
+      listContainer.scrollTop = listContainer.scrollHeight;
+    };
+
+    renderCommentsList();
+
+    const refreshBtn = document.getElementById('btn-refresh-comment-nickname');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', () => {
+        let newNickname = ANONYMOUS_NICKNAMES[Math.floor(Math.random() * ANONYMOUS_NICKNAMES.length)];
+        while (newNickname === randomNickname) {
+          newNickname = ANONYMOUS_NICKNAMES[Math.floor(Math.random() * ANONYMOUS_NICKNAMES.length)];
+        }
+        randomNickname = newNickname;
+        document.getElementById('comment-random-nickname').textContent = randomNickname;
+      });
+    }
+
+    const submitCommentBtn = document.getElementById('btn-comment-submit');
+    if (submitCommentBtn) {
+      submitCommentBtn.addEventListener('click', () => {
+        const textarea = document.getElementById('comment-text-input');
+        if (!textarea) return;
+        const text = textarea.value.trim();
+        if (!text) {
+          alert('請輸入留言內容！');
+          return;
+        }
+
+        if (!state.articleComments[art.id]) {
+          state.articleComments[art.id] = [];
+        }
+        
+        const randomColor = AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)];
+        
+        state.articleComments[art.id].push({
+          name: randomNickname,
+          color: randomColor,
+          text: text,
+          time: '剛剛'
+        });
+        
+        state.points += 5;
+        state.save();
+        updateAppHeaders();
+
+        renderCommentsList();
+        textarea.value = '';
+
+        triggerCoinExplosion(submitCommentBtn);
+        flashDynamicIsland('🎉 感謝匿名分享！積分 +5 點 🪙');
+      });
+    }
   }
 
   drawer.style.display = 'flex';
