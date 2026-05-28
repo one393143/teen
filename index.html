@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心晴日記 - 手機 APP 原型框架</title>
+  <meta name="description" content="這是一個專為心情日記、情緒護理與生活習慣打卡設計的手機 App 高保真原型框架，支援電腦瀏覽器測試，預配置 Capacitor 打包環境。">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+  <!-- DESKTOP PREVIEW WRAPPER -->
+  <div class="desktop-wrapper">
+
+    <!-- LEFT SIDEBAR: Admin Console -->
+    <div class="admin-sidebar">
+      <div class="admin-header">
+        <h1>📱 App 互動控制面板</h1>
+        <p>此面板為電腦網頁專屬測試工具。當您用手機打開網頁，或將其打包成 iOS/Android 原生 App 後，此控制面板將自動隱藏，讓您享受滿版原生的體驗。</p>
+      </div>
+
+      <!-- App Metadata Settings -->
+      <div class="admin-card">
+        <h2>🛠&nbsp;基礎設定與名稱定義</h2>
+        <div class="form-group">
+          <label for="admin-app-name">自訂手機 APP 名稱 (即時同步)</label>
+          <input type="text" id="admin-app-name" class="form-control" placeholder="請輸入名稱" value="心晴日記">
+        </div>
+        <div class="form-group">
+          <label for="theme-select">深淺色外觀切換</label>
+          <select id="theme-select" class="form-control">
+            <option value="light">☀️ 輕甜溫慢模式 (Light)</option>
+            <option value="dark">🌙 靜夜深海模式 (Dark)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Sign-In Simulator & Points -->
+      <div class="admin-card">
+        <h2>💰 積分與簽到模擬</h2>
+        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px; line-height:1.4;">
+          本 App 設計有健全的積分體系：每日登入領 10 積分、寫日記領 10 積分。您可以在下方手動點擊簽到，或查看當前餘額。
+        </p>
+        <button id="btn-admin-checkin" class="btn btn-primary" style="margin-bottom:10px;">📅 每日登入簽到 (+10)</button>
+        <p style="font-size:11px; color:var(--text-muted); text-align:center;">
+          當前用戶積分：<span id="sidebar-user-points" class="badge-points">320</span> pt
+        </p>
+      </div>
+
+      <!-- Quick Mock Data Controls -->
+      <div class="admin-card">
+        <h2>📅 3 個月歷史日記數據</h2>
+        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px; line-height:1.4;">
+          本專案已<strong>預先自動加載 3 個月（90+天）</strong>的歷史日記紀錄，以供測試柱狀圖與日曆。若您想重新灌入或清除數據，可點擊下方按鈕：
+        </p>
+        <div class="quick-data-grid">
+          <button id="btn-inject-data" class="btn btn-secondary">⚡ 灌入 3月日記</button>
+          <button id="btn-reset-db" class="btn btn-danger">🗑️ 重置數據庫</button>
+        </div>
+      </div>
+
+      <!-- Capacitor Packaging Documentation Card -->
+      <div class="admin-card">
+        <h2>📦 打包成 iOS / Android 原生 App 說明</h2>
+        <p style="font-size:12px; color:var(--text-secondary); line-height:1.4; margin-bottom:10px;">
+          此專案已預先優化為 <strong>Capacitor</strong> 友好架構。當您在電腦安裝好 Node.js 後，可在終端機執行以下命令，輕鬆打包成手機可下載安裝的檔案：
+        </p>
+        <div class="code-block"># 1. 安裝 Capacitor 腳本核心
+npm install @capacitor/core @capacitor/cli
+
+# 2. 初始化 App 包資訊 (指定主頁為根目錄)
+npx cap init "請輸入名稱" "com.teen.moodtracker" --web-dir=.
+
+# 3. 安裝 iOS 與 Android 原生平台擴充
+npm install @capacitor/android @capacitor/ios
+npx cap add android
+npx cap add ios
+
+# 4. 同步網頁代碼到手機模擬器/原生專案中
+npx cap sync</div>
+      </div>
+    </div>
+
+    <!-- CENTER MOBILE PHONE SIMULATOR -->
+    <div class="phone-simulator">
+      
+      <!-- Phone Status Bar -->
+      <div class="phone-hardware">
+        <span id="hardware-clock" class="status-left">11:07</span>
+        <div id="phone-island" class="dynamic-island"></div>
+        <div class="status-right">
+          <!-- Wifi SVG Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21a2 2 0 1 1-2-2 2 2 0 0 1 2 2Zm-8.5-5.9a10 10 0 0 1 13 0l-1.5 1.5a8 8 0 0 0-10 0Zm-3-3a14 14 0 0 1 19 0l-1.5 1.5a12 12 0 0 0-16 0Zm-3-3a18 18 0 0 1 25 0l-1.5 1.5a16 16 0 0 0-22 0Z"/></svg>
+          <!-- Signal SVG Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h2v2H3zm4-4h2v6H7zm4-4h2v10h-2zm4-4h2v14h-2zm4-4h2v18h-2z"/></svg>
+          <!-- Battery SVG Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-1 11H4V8h12v8zm5-7h1v6h-1z"/></svg>
+        </div>
+      </div>
+
+      <!-- Phone Screen Mockup -->
+      <div class="phone-screen" id="phone-screen-container">
+        
+        <!-- App General Navigation Header -->
+        <div class="app-header">
+          <span class="app-title">心晴日記</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button id="btn-checkin-header" class="btn btn-secondary" style="font-size:10px; padding:4px 8px; border-radius:12px; font-weight:700;">📅 簽到</button>
+            <div class="points-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="m9 11 3-3 3 3"/></svg>
+              <span id="points-pill-value">320</span> pt
+            </div>
+          </div>
+        </div>
+
+        <!-- App Scrollable Main Body Content -->
+        <div class="app-body">
+
+          <!-- ================= PAGE 1: DIARY ================= -->
+          <div class="app-page active" id="page-diary">
+            
+            <!-- Calendar Card Component -->
+            <div class="calendar-card">
+              <div class="calendar-header">
+                <div class="calendar-title">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <select id="calendar-month-select">
+                    <option value="2026-0">2026 年 1 月</option>
+                    <option value="2026-1">2026 年 2 月</option>
+                    <option value="2026-2">2026 年 3 月</option>
+                    <option value="2026-3">2026 年 4 月</option>
+                    <option value="2026-4" selected>2026 年 5 月</option>
+                    <option value="2026-5">2026 年 6 月</option>
+                    <option value="2026-6">2026 年 7 月</option>
+                    <option value="2026-7">2026 年 8 月</option>
+                    <option value="2026-8">2026 年 9 月</option>
+                    <option value="2026-9">2026 年 10 月</option>
+                    <option value="2026-10">2026 年 11 月</option>
+                    <option value="2026-11">2026 年 12 月</option>
+                  </select>
+                </div>
+                <div style="display: flex; gap: 4px;">
+                  <button class="calendar-nav-btn" id="btn-calendar-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  </button>
+                  <button class="calendar-nav-btn" id="btn-calendar-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Daylio Grid system -->
+              <div class="calendar-grid" id="diary-calendar-grid">
+                <div class="calendar-day-label">日</div>
+                <div class="calendar-day-label">一</div>
+                <div class="calendar-day-label">二</div>
+                <div class="calendar-day-label">三</div>
+                <div class="calendar-day-label">四</div>
+                <div class="calendar-day-label">五</div>
+                <div class="calendar-day-label">六</div>
+                <!-- Dynamic Dates will be rendered here -->
+              </div>
+            </div>
+
+            <!-- Mood Statistics Card (Reference Image #1) -->
+            <div class="stats-card">
+              <div class="stats-card-title">
+                <span>心情分布次數 (Mood Statistics)</span>
+                <select>
+                  <option>全部數據</option>
+                  <option>近一個月</option>
+                </select>
+              </div>
+              
+              <!-- 5 Columns Bar Chart Graphic -->
+              <div class="chart-bar-container">
+                <div class="chart-bar-column" id="chart-col-awful">
+                  <span class="chart-bar-value">0</span>
+                  <div class="chart-bar-rect" style="height: 5%"></div>
+                  <div class="chart-bar-label">😭</div>
+                </div>
+                <div class="chart-bar-column" id="chart-col-bad">
+                  <span class="chart-bar-value">0</span>
+                  <div class="chart-bar-rect" style="height: 5%"></div>
+                  <div class="chart-bar-label">😢</div>
+                </div>
+                <div class="chart-bar-column" id="chart-col-neutral">
+                  <span class="chart-bar-value">0</span>
+                  <div class="chart-bar-rect" style="height: 5%"></div>
+                  <div class="chart-bar-label">😐</div>
+                </div>
+                <div class="chart-bar-column" id="chart-col-good">
+                  <span class="chart-bar-value">0</span>
+                  <div class="chart-bar-rect" style="height: 5%"></div>
+                  <div class="chart-bar-label">🙂</div>
+                </div>
+                <div class="chart-bar-column" id="chart-col-cool">
+                  <span class="chart-bar-value">0</span>
+                  <div class="chart-bar-rect" style="height: 5%"></div>
+                  <div class="chart-bar-label">🤩</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mood Percentage Card (Reference Image #1) -->
+            <div class="stats-card">
+              <div class="stats-card-title">
+                <span>心情比例 (Mood Percentage)</span>
+                <select>
+                  <option>近一週</option>
+                  <option>近一個月</option>
+                </select>
+              </div>
+
+              <!-- SVG Donut Chart Interface -->
+              <div class="donut-chart-box">
+                <div class="donut-chart-graphic">
+                  <svg width="100%" height="100%" viewBox="0 0 100 100">
+                    <circle class="donut-bg" cx="50" cy="50" r="40"/>
+                    <circle class="donut-segment" id="donut-seg-good" cx="50" cy="50" r="40" stroke="var(--mood-good)"/>
+                    <circle class="donut-segment" id="donut-seg-normal" cx="50" cy="50" r="40" stroke="var(--mood-neutral)"/>
+                    <circle class="donut-segment" id="donut-seg-bad" cx="50" cy="50" r="40" stroke="var(--mood-awful)"/>
+                  </svg>
+                  <div class="donut-center">
+                    <div class="donut-center-num" id="donut-center-total-num">0</div>
+                    <div class="donut-center-lbl">總天數</div>
+                  </div>
+                </div>
+                <div class="donut-legend">
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-lbl-group">
+                      <span class="donut-legend-color" style="background-color: var(--mood-good);"></span>
+                      <span>開心良好 (Good)</span>
+                    </div>
+                    <span class="donut-legend-pct" id="legend-pct-good">0%</span>
+                  </div>
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-lbl-group">
+                      <span class="donut-legend-color" style="background-color: var(--mood-neutral);"></span>
+                      <span>平淡日常 (Normal)</span>
+                    </div>
+                    <span class="donut-legend-pct" id="legend-pct-normal">0%</span>
+                  </div>
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-lbl-group">
+                      <span class="donut-legend-color" style="background-color: var(--mood-awful);"></span>
+                      <span>鬱悶低落 (Bad)</span>
+                    </div>
+                    <span class="donut-legend-pct" id="legend-pct-bad">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Diary Statistics Card (Reference Image #1) -->
+            <div class="stats-card">
+              <div class="stats-card-title">
+                <span>寫日記進度統計 (Diary Statistics)</span>
+                <span style="font-size: 11px; color: var(--text-muted);">本週寫作進度</span>
+              </div>
+              <div class="diary-stats-dots" id="diary-weekly-dots-row">
+                <!-- Dynamic Week streak will render here -->
+              </div>
+            </div>
+
+            <!-- History Logs Section -->
+            <div class="history-section-title">📝 我的歷史日記紀錄</div>
+            <div id="diary-history-list">
+              <!-- Logs Cards list will render here -->
+            </div>
+          </div>
+
+          <!-- ================= PAGE 2: ARTICLES ================= -->
+          <div class="app-page" id="page-articles">
+            <!-- Search block -->
+            <div class="search-bar-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="article-search" class="search-input" placeholder="搜尋放鬆、心理自愈等文章...">
+            </div>
+
+            <!-- Horizontal Scroll category tabs -->
+            <div class="article-tags-scroll">
+              <button class="article-tab-pill" data-category="all">全部文章</button>
+              <button class="article-tab-pill" data-category="心靈成長">🌱 心靈成長</button>
+              <button class="article-tab-pill" data-category="情緒護理">🧘 情緒護理</button>
+              <button class="article-tab-pill" data-category="睡眠健康">😴 睡眠健康</button>
+            </div>
+
+            <!-- Feed list grid -->
+            <div id="articles-feed-list">
+              <!-- Article Cards dynamic injection -->
+            </div>
+          </div>
+
+          <!-- ================= PAGE 3: CHAT (UPGRADED FOR POINTS GATING & SCREENING) ================= -->
+          <div class="app-page" id="page-chat">
+            
+            <!-- STATE A: New User Welcome Trial Sheet -->
+            <div id="chat-welcome-trial" class="chat-gateway-screen" style="display: none;">
+              <div class="gateway-card">
+                <span class="gateway-icon">🎁</span>
+                <h3>獲得新用戶免費聊天額度</h3>
+                <p>為了幫助您排解焦慮、進行壓力自我篩檢，系統提供您一次<strong>免費與 AI 晴晴聊聊的機會（限時 40 分鐘）</strong>。</p>
+                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 8px;">* 晴晴會隨時關注您的文字情緒。若發現狀況不好，可免費為您媒合【匿名真人志工】或【專業諮商老師】介入輔導。</p>
+                <button id="btn-chat-start-free" class="btn btn-primary" style="margin-top: 20px; height: 46px; font-size:14px;">🌟 開始體驗免費聊聊 (40 分鐘)</button>
+              </div>
+            </div>
+
+            <!-- STATE B: Chat Gated Locked Overlay (300 points required) -->
+            <div id="chat-locked-overlay" class="chat-gateway-screen" style="display: none;">
+              <div class="gateway-card">
+                <span class="gateway-icon">🔒</span>
+                <h3>聊天對話額度已用完</h3>
+                <p>新用戶的免費聊聊額度已經到期囉。解鎖下一段 <strong>40 分鐘深度情緒聊聊對話</strong> 需要花費 <strong>300 積分</strong>。</p>
+                <div style="background-color: var(--bg-primary); border-radius: 12px; padding: 12px; margin: 12px 0; border: 1px dashed var(--border-color);">
+                  <p style="font-size: 11px; text-align: left; color: var(--text-secondary); line-height: 1.5;">
+                    💡 <strong>如何賺取積分？</strong><br>
+                    1. 📅 每日登入簽到：<strong>+10 積分</strong><br>
+                    2. 📝 紀錄心情日記：<strong>+10 積分/天</strong>
+                  </p>
+                </div>
+                <button id="btn-chat-unlock-paid" class="btn btn-accent" style="margin-top: 14px; height: 46px; font-size:14px; font-weight:700;">💰 消耗 300 積分開啟對話 (40分鐘)</button>
+              </div>
+            </div>
+
+            <!-- STATE C: Active Chatroom View -->
+            <div id="chat-active-room" style="display: block;">
+              <div class="chat-container">
+                
+                <!-- Live Session Countdown Timer Header -->
+                <div class="chat-timer-banner" id="chat-timer-header-banner" style="display: none;">
+                  <span id="chat-timer-countdown-text">⏱️ 剩餘時間 40:00</span>
+                  <span style="font-size: 9px; opacity: 0.8;">(額度內無限對答)</span>
+                </div>
+
+                <!-- Messages logs view scroll -->
+                <div class="chat-history" id="chat-message-history">
+                  <!-- Dynamic chat bubbles generated here -->
+                </div>
+
+                <!-- Chat bottom controls inputs -->
+                <div class="chat-input-bar">
+                  <div style="display:flex; flex-direction:column; width:100%;">
+                    
+                    <!-- Quick prompt helpers row -->
+                    <div class="chat-quick-hints">
+                      <span class="chat-hint-tag">我今天心情超棒！🎉</span>
+                      <span class="chat-hint-tag">我覺得有點焦慮...😢</span>
+                      <span class="chat-hint-tag">推薦我今天適合做什麼？💡</span>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; align-items: center; width: 100%;">
+                      <textarea id="chat-msg-input" class="chat-textarea" placeholder="說點什麼..."></textarea>
+                      <button id="btn-chat-send" class="chat-send-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ================= PAGE 4: STORE ================= -->
+          <div class="app-page" id="page-store">
+            <!-- Points display card -->
+            <div class="store-hero-card">
+              <h3>心情積分餘額</h3>
+              <div class="store-hero-points">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="m9 11 3-3 3 3"/></svg>
+                <span id="store-hero-points-value">320</span> pt
+              </div>
+              <p class="store-hero-desc">🌟 每次登入簽到或寫完心情日記，系統會為您回饋 +10 積分！您可以使用積分來免費解鎖 App 對話額度（300積分）、兌換精美主題皮膚、表情貼紙或精選實體自愈小物。</p>
+            </div>
+
+            <!-- Goods list -->
+            <h3 class="store-section-title">🎁 熱銷好禮兌換</h3>
+            <div class="store-grid" id="store-goods-grid">
+              <!-- Goods Grid items dynamic injection -->
+            </div>
+          </div>
+
+        </div> <!-- End app-body -->
+
+        <!-- Add Entry Floating FAB Button (Visible on Diary page) -->
+        <button class="fab-add" id="fab-diary-add">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+
+        <!-- Bottom Navigation Shell Bar -->
+        <div class="app-nav">
+          <a class="nav-item active" data-page="diary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span>日記</span>
+          </a>
+          <a class="nav-item" data-page="articles">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+            <span>文章</span>
+          </a>
+          <a class="nav-item" data-page="chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>聊聊</span>
+          </a>
+          <a class="nav-item" data-page="store">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>商城</span>
+          </a>
+        </div>
+
+        <!-- Phone home swipe indicator line -->
+        <div class="phone-home-indicator"></div>
+
+      </div> <!-- End phone-screen -->
+    </div> <!-- End phone-simulator -->
+
+  </div> <!-- End desktop-wrapper -->
+
+
+  <!-- ================= DIARY WRITING MODAL SHEET ================= -->
+  <div class="modal-overlay" id="overlay-diary-modal">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-diary-date-header">記錄今天的生活</span>
+        <button class="modal-close" id="modal-diary-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Emoji scale buttons -->
+      <div class="modal-section-title">1. 你好嗎？選擇今日的心情貼紙</div>
+      <div class="mood-selector-container">
+        <button class="mood-select-btn" data-mood="awful">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="var(--mood-awful)"/><path d="M 32 48 L 40 44" stroke="#2d2a45" stroke-width="4.5" stroke-linecap="round"/><path d="M 68 48 L 60 44" stroke="#2d2a45" stroke-width="4.5" stroke-linecap="round"/><path d="M 35 68 Q 50 55 65 68" stroke="#2d2a45" stroke-width="5.5" stroke-linecap="round" fill="none"/><path d="M 30 36 Q 36 40 42 34" stroke="#2d2a45" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M 70 36 Q 64 40 58 34" stroke="#2d2a45" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+          <span>糟糕</span>
+        </button>
+        <button class="mood-select-btn" data-mood="bad">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="var(--mood-bad)"/><circle cx="34" cy="48" r="4" fill="#2d2a45"/><circle cx="66" cy="48" r="4" fill="#2d2a45"/><path d="M 36 66 Q 50 54 64 66" stroke="#2d2a45" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M 28 38 Q 35 34 38 39" stroke="#2d2a45" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M 72 38 Q 65 34 62 39" stroke="#2d2a45" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+          <span>不佳</span>
+        </button>
+        <button class="mood-select-btn" data-mood="neutral">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="var(--mood-neutral)"/><circle cx="34" cy="46" r="4" fill="#2d2a45"/><circle cx="66" cy="46" r="4" fill="#2d2a45"/><line x1="32" y1="62" x2="68" y2="62" stroke="#2d2a45" stroke-width="5" stroke-linecap="round"/></svg>
+          <span>沒特別</span>
+        </button>
+        <button class="mood-select-btn" data-mood="good">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="var(--mood-good)"/><circle cx="34" cy="45" r="4.5" fill="#2d2a45"/><circle cx="66" cy="45" r="4.5" fill="#2d2a45"/><path d="M 30 58 Q 50 74 70 58" stroke="#2d2a45" stroke-width="5" stroke-linecap="round" fill="none"/><ellipse cx="26" cy="54" rx="4" ry="2" fill="#ff7da0" opacity="0.6"/><ellipse cx="74" cy="54" rx="4" ry="2" fill="#ff7da0" opacity="0.6"/></svg>
+          <span>良好</span>
+        </button>
+        <button class="mood-select-btn" data-mood="cool">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="var(--mood-cool)"/><circle cx="35" cy="40" r="4.5" fill="#fff"/><circle cx="65" cy="40" r="4.5" fill="#fff"/><path d="M 35 60 Q 50 78 65 60" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none"/><circle cx="35" cy="40" r="2" fill="#2d2a45"/><circle cx="65" cy="40" r="2" fill="#2d2a45"/><path d="M 22 28 Q 35 24 38 32" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M 78 28 Q 65 24 62 32" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+          <span>超棒</span>
+        </button>
+      </div>
+
+      <!-- Habits Tag select buttons -->
+      <div class="modal-section-title">2. 做了些什麼？標記今日的生活活動</div>
+      <div class="activities-grid">
+        <button class="activity-btn" data-activity="運動">🏃‍♂️ 運動健體</button>
+        <button class="activity-btn" data-activity="睡眠">😴 充足睡眠</button>
+        <button class="activity-btn" data-activity="閱讀">📖 靜心閱讀</button>
+        <button class="activity-btn" data-activity="工作">💼 認真工作</button>
+        <button class="activity-btn" data-activity="娛樂">🎮 遊戲電玩</button>
+        <button class="activity-btn" data-activity="美食">🍕 犒賞美食</button>
+      </div>
+
+      <!-- Text notes area -->
+      <div class="modal-section-title">3. 生活備註（心情碎碎唸）</div>
+      <textarea id="diary-note-input" class="note-textarea" placeholder="寫點什麼吧... 今天經歷了什麼有趣或值得記錄的事呢？✍️"></textarea>
+
+      <!-- Submit buttons -->
+      <button class="btn btn-primary" id="btn-diary-submit" style="height: 48px; border-radius: 14px; font-size: 15px;">💾 儲存今日回憶 (+10 積分)</button>
+    </div>
+  </div>
+
+  <!-- ================= DETAILED ARTICLE SLIDE DRAWER ================= -->
+  <div class="article-drawer" id="article-detail-drawer">
+    <div class="article-drawer-header">
+      <button class="drawer-back-btn" id="btn-article-drawer-back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </button>
+      <span class="modal-title">返回文章列表</span>
+    </div>
+    <div class="article-drawer-body" id="article-drawer-content-box">
+      <!-- Full article body text will dynamically load here -->
+    </div>
+  </div>
+
+  <script src="src/app.js"></script>
+</body>
+</html>

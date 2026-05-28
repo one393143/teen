@@ -1,0 +1,6 @@
+{
+  "appId": "com.teen.moodtracker",
+  "appName": "請輸入名稱",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
