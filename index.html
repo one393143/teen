@@ -12,74 +12,7 @@
   <!-- DESKTOP PREVIEW WRAPPER -->
   <div class="desktop-wrapper">
 
-    <!-- LEFT SIDEBAR: Admin Console -->
-    <div class="admin-sidebar">
-      <div class="admin-header">
-        <h1>📱 App 互動控制面板</h1>
-        <p>此面板為電腦網頁專屬測試工具。當您用手機打開網頁，或將其打包成 iOS/Android 原生 App 後，此控制面板將自動隱藏，讓您享受滿版原生的體驗。</p>
-      </div>
 
-      <!-- App Metadata Settings -->
-      <div class="admin-card">
-        <h2>🛠&nbsp;基礎設定與名稱定義</h2>
-        <div class="form-group">
-          <label for="admin-app-name">自訂手機 APP 名稱 (即時同步)</label>
-          <input type="text" id="admin-app-name" class="form-control" placeholder="請輸入名稱" value="Pandimo">
-        </div>
-        <div class="form-group">
-          <label for="theme-select">深淺色外觀切換</label>
-          <select id="theme-select" class="form-control">
-            <option value="light">☀️ 輕甜溫慢模式 (Light)</option>
-            <option value="dark">🌙 靜夜深海模式 (Dark)</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Sign-In Simulator & Points -->
-      <div class="admin-card">
-        <h2>💰 積分與簽到模擬</h2>
-        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px; line-height:1.4;">
-          本 App 設計有健全的積分體系：每日登入領 10 積分、寫日記領 10 積分。您可以在下方手動點擊簽到，或查看當前餘額。
-        </p>
-        <button id="btn-admin-checkin" class="btn btn-primary" style="margin-bottom:10px;">📅 每日登入簽到 (+10)</button>
-        <p style="font-size:11px; color:var(--text-muted); text-align:center;">
-          當前用戶積分：<span id="sidebar-user-points" class="badge-points">320</span> pt
-        </p>
-      </div>
-
-      <!-- Quick Mock Data Controls -->
-      <div class="admin-card">
-        <h2>📅 3 個月歷史日記數據</h2>
-        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px; line-height:1.4;">
-          本專案已<strong>預先自動加載 3 個月（90+天）</strong>的歷史日記紀錄，以供測試柱狀圖與日曆。若您想重新灌入或清除數據，可點擊下方按鈕：
-        </p>
-        <div class="quick-data-grid">
-          <button id="btn-inject-data" class="btn btn-secondary">⚡ 灌入 3月日記</button>
-          <button id="btn-reset-db" class="btn btn-danger">🗑️ 重置數據庫</button>
-        </div>
-      </div>
-
-      <!-- Capacitor Packaging Documentation Card -->
-      <div class="admin-card">
-        <h2>📦 打包成 iOS / Android 原生 App 說明</h2>
-        <p style="font-size:12px; color:var(--text-secondary); line-height:1.4; margin-bottom:10px;">
-          此專案已預先優化為 <strong>Capacitor</strong> 友好架構。當您在電腦安裝好 Node.js 後，可在終端機執行以下命令，輕鬆打包成手機可下載安裝的檔案：
-        </p>
-        <div class="code-block"># 1. 安裝 Capacitor 腳本核心
-npm install @capacitor/core @capacitor/cli
-
-# 2. 初始化 App 包資訊 (指定主頁為根目錄)
-npx cap init "請輸入名稱" "com.teen.moodtracker" --web-dir=.
-
-# 3. 安裝 iOS 與 Android 原生平台擴充
-npm install @capacitor/android @capacitor/ios
-npx cap add android
-npx cap add ios
-
-# 4. 同步網頁代碼到手機模擬器/原生專案中
-npx cap sync</div>
-      </div>
-    </div>
 
     <!-- CENTER MOBILE PHONE SIMULATOR -->
     <div class="phone-simulator">
@@ -294,25 +227,7 @@ npx cap sync</div>
             <!-- Search block -->
             <div class="search-bar-container">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input type="text" id="article-search" class="search-input" placeholder="搜尋段考、暑假、學長等話題...">
-            </div>
-
-            <!-- Recent Hot Topics Banner -->
-            <div class="articles-bigdata-banner">
-              <div class="bigdata-banner-glow"></div>
-              <div class="bigdata-banner-content">
-                <span class="bigdata-badge">🔥 近期熱門焦點</span>
-                <h3>大家最近都在關心什麼？</h3>
-                <p>關於段考、暑輔、容貌焦慮與人際暗戀，來看看大家最深切的真實心聲與討論吧。💬</p>
-              </div>
-            </div>
-
-            <!-- Horizontal Scroll category tabs -->
-            <div class="article-tags-scroll">
-              <button class="article-tab-pill" data-category="all">全部文章</button>
-              <button class="article-tab-pill" data-category="課業焦慮">🏫 課業焦慮</button>
-              <button class="article-tab-pill" data-category="容貌焦慮">💄 容貌焦慮</button>
-              <button class="article-tab-pill" data-category="感情告白">💖 感情告白</button>
+              <input type="text" id="article-search" class="search-input" placeholder="搜尋感興趣的文章主題...">
             </div>
 
             <!-- Feed list grid -->
@@ -329,8 +244,8 @@ npx cap sync</div>
               <div class="gateway-card">
                 <span class="gateway-icon">🎁</span>
                 <h3>獲得新用戶免費聊天額度</h3>
-                <p>為了幫助您排解焦慮、進行壓力自我篩檢，系統提供您一次<strong>免費與 AI 晴晴聊聊的機會（限時 40 分鐘）</strong>。</p>
-                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 8px;">* 晴晴會隨時關注您的文字情緒。若發現狀況不好，可免費為您媒合【匿名真人志工】或【專業諮商老師】介入輔導。</p>
+                <p>為了幫助您排解焦慮、進行壓力自我篩檢，系統提供您一次<strong>免費與 AI 伴侶 Pandimo 聊聊的機會（限時 40 分鐘）</strong>。</p>
+                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 8px;">* Pandimo 會隨時關注您的文字情緒。若發現狀況不好，可免費為您媒合【匿名真人志工】或【專業諮商老師】介入輔導。</p>
                 <button id="btn-chat-start-free" class="btn btn-primary" style="margin-top: 20px; height: 46px; font-size:14px;">🌟 開始體驗免費聊聊 (40 分鐘)</button>
               </div>
             </div>

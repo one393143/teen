@@ -95,6 +95,11 @@ function generateThreeMonthsOfDiaries() {
     curDate.setDate(today.getDate() - i);
     const dateStr = curDate.toISOString().split('T')[0];
 
+    // skip around 13% of days (approx 3-5 days per month) to make mock data look realistic
+    if (Math.random() < 0.13) {
+      continue;
+    }
+
     // Seed logic: weight normal/good slightly higher, but maintain standard bad/awful entries
     const rand = Math.random();
     let mood = 'neutral';
@@ -122,40 +127,40 @@ const DEFAULT_ARTICLES = [
   {
     id: 'a1',
     category: '容貌焦慮',
-    badge: '🔥 近期熱門焦點第一',
-    bigDataLabel: '📌 大家都超有共鳴：不管是段考排名還是鏡子裡的自己，原來我們都正在經歷這份成長的重量。',
-    title: '【心情】段考成績出來被排名逼瘋...大家也會容貌焦慮嗎？',
-    snippet: '最近考完段考，成績單出來排名又退步了...回到家爸媽臉色超臭。看著Threads上的人都好好看，突然自卑到出門只想戴口罩...',
-    content: '<p>如題，我是高二生... 最近真的快被考試成績跟班上排名逼瘋了。</p><p>每次排名出來，回到家爸媽臉就超臭，一直碎碎唸說我都沒有別人在努力。但我真的讀到半夜兩點，為什麼還是考不贏那些補習班刷題魔人？😭😭</p><p>更慘的是，最近滑Threads或小紅書，看到大家拍照都超好看、穿搭超有質感，再看看鏡子裡的自己，皮膚差又矮，真的瞬間自卑到爆。現在出門上學都只敢戴口罩，覺得沒戴口罩就超級沒有安全感... 有時間就會焦慮到瘋掉。</p><p>有沒有人也跟我一樣，同時面臨成績壓力跟嚴重的容貌焦慮啊？</p>',
-    author: '渴望放假的貓咪',
+    badge: '💡 官方療癒指引',
+    bigDataLabel: '📌 溫慢陪伴：段考成績與鏡子裡的自己，都是我們在成長路上正在面對的必修課。',
+    title: '【專題】被段考排名與鏡中的自己逼瘋？給陷入雙重焦慮的你',
+    snippet: '最近考完段考，看著退步的成績單、回到家爸媽無奈的臉色，再滑滑社群上精緻漂亮的臉孔，是不是讓你突然自卑到只想戴起口罩？來聊聊怎麼找回自我。',
+    content: '<p>最近考完段考，成績單陸續發了下來。看著排名退步，回到家還要面對爸媽沉重的神色，心裡那股無力感真的很難受...</p><p>更令人無奈的是，當我們精疲力竭地躺在床上滑著 Threads 或小紅書時，滿眼都是精緻好看的臉孔、時尚的穿搭。對比鏡子裡皮膚暗沉、神色憔悴 of the self，突然一股強烈的「容貌焦慮」油然而生。很多人開始在出門時緊緊戴著口罩，覺得只有遮住臉，才有一絲安全感。</p><h3>💡 給你的一些溫柔建議</h3><ul><li><strong>不要用別人的「精選集」對比自己的「日常」：</strong>社群媒體上的照片大多經過精心的光線調整、角度捕捉和濾鏡修飾。真實的人生都有不完美的一面，你所看到的完美，很多時候只是演算法篩選出的幻象。</li><li><strong>成績是短暫的標籤，你的價值不是：</strong>一次段考的退步，只代表這段時間的學習方法需要調整，並不否定你的智慧和付出。深呼吸，給自己一點時間喘息。</li><li><strong>建立「無條件接納」的口罩卸下練習：</strong>試著在自己感到安全的角落，對著鏡子對自己說：「辛苦了，不完美也沒關係，我依然愛這樣的自己。」</li></ul>',
+    author: 'Pandimo 官方專欄',
     readTime: '3 分鐘',
-    likes: 124,
+    likes: 245,
     img: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 'a2',
     category: '課業焦慮',
-    badge: '☀️ 暑假熱門焦點',
-    bigDataLabel: '📌 大家都超有共鳴：想要自己打工賺生活費，又怕被重修卡死，這題真的是高中生涯大魔王！',
-    title: '【閒聊】暑假暑輔到底要幹嘛？想去打工又怕被重修當掉...',
-    snippet: '下個月就暑假了，可是學校居然排了滿滿四週的暑期輔導...每天去學校發呆真的很浪費時間，想翹課去打工又怕功課跟不上...',
-    content: '<p>如題，下個月就要放暑假了，可是我們學校居然強制排了四週的暑期輔導！</p><p>每天去學校吹冷氣發呆，老師也只是在趕進度，真的超級浪費生命 😑。原本計劃暑假去家裡附近的飲料店打工，賺點零用錢來買自己喜歡的手帳本和文具，但又很擔心下學期的科目會跟不上，要是被當掉重修就更麻煩了... 😭😭</p><p>大家暑假都是怎麼規劃的啊？真的有人會乖乖去上滿暑輔嗎？還是大家都直接請假請爆去打工或做自己想做的事？</p>',
-    author: '期期盼盼的水豚',
+    badge: '🧭 暑期成長指南',
+    bigDataLabel: '📌 溫慢陪伴：想去打工嘗試獨立，又被課業和暑輔壓得喘不過氣？你並不孤單。',
+    title: '【閒聊】面對塞滿的暑輔與想打工的心：如何在假期間找到平衡？',
+    snippet: '放假本該是放鬆的時候，學校卻排滿了輔導課，而你又想踏出舒適圈去打工賺點零花錢、買喜歡的手帳本，卻又擔心課業被當掉重修... 我們該如何抉擇？',
+    content: '<p>下個月就要迎來暑假了，可是學校卻排了滿滿的暑期輔導。很多人覺得去學校發呆、吹冷氣很浪費生命，但又擔心如果不去，下學期的科目會跟不上，甚至面臨被當掉重修的風險，真的很令人頭痛 😭。</p><p>同時，許多同學計畫利用假期到飲料店、超商打工，賺取第一筆屬於自己的零用錢，去買喜歡的文具、手帳本或衣服，卻又怕自己在繁重的課業與工作之間分身乏術...</p><h3>💡 官方建議：假期平衡心法</h3><ul><li><strong>釐清「核心目標」：</strong>先問問自己，這個假期你最想獲得的是什麼？是補充睡眠與精力的「休息」、累積社會經驗與金錢的「打工」，還是修補功課弱點的「學習」？每個目標都沒有錯，但不要奢望能同時 100% 達成。</li><li><strong>時間的碎裂化管理：</strong>若暑輔是必須參加的，可以把打工時間控制在週末或平日晚上，每週不超過 10-15 小時，確保自己有充足的睡眠與複習時間。</li><li><strong>不要害怕拒絕不合理的期待：</strong>如果身體或精力已經發出警訊，請勇敢地向加班或超額的班表說不。假期是為了走更長遠的路，不是用來掏空自己的。</li></ul>',
+    author: 'Pandimo 官方專欄',
     readTime: '4 分鐘',
-    likes: 86,
+    likes: 189,
     img: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 'a3',
     category: '感情告白',
-    badge: '💖 純愛告白焦點',
-    bigDataLabel: '📌 大家都超有共鳴：看著他彈電吉他笑起來的虎牙，暗戀的酸甜滋味，真的是最溫柔的青春回憶。',
-    title: '【感情】暗戀隔壁班熱音社學長...要衝一波告白單身嗎？',
-    snippet: '最近放學經過音樂教室，看到隔壁班那個彈電吉他的學長真的好帥...😭 後天就是社團發表會了，我要趁機送小禮物並告白嗎？',
-    content: '<p>如題，我是高二生... 最近真的暈船暈到不行了 😭。</p><p>上個學期開始，每次放學經過音樂社團教室，都會看到隔壁班一個高高的、彈電吉他的學長。他笑起來有一對小虎牙，真的超級陽光帥氣！每次看到他，我的心臟都快跳出來了...</p><p>後來發現他也有玩 Threads，我偷偷追蹤了他，每天看他發日常碎碎唸，更覺得他是一個超級溫柔的人 😭。後天就是他們的社團期末發表會了，我打算寫一張精美的手繪卡片送給他，但又很怕被他當眾拒慢會超級尷尬... 到時候在學校低頭不見抬頭見...</p><p>大家覺得我要勇敢衝一波告白嗎？還是默默暗戀到畢業就好？真的好苦惱啊啊啊！</p>',
-    author: '暗戀中的小水母',
+    badge: '💖 青春心靈捕手',
+    bigDataLabel: '📌 溫慢陪伴：看著他彈吉他的專注側臉，暗戀的酸甜，是青春歲月裡最美的點綴。',
+    title: '【感情】暗戀隔壁班的那個「他/她」？勇敢跨出那一步的勇氣指南',
+    snippet: '每當放學經過音樂教室，看到他在台上彈著吉他的帥氣背影，心臟總是漏跳一拍。社團發表會要到了，我該寫張卡片送給他嗎？該不該衝一波？',
+    content: '<p>在青澀的高中歲月裡，我們的心裡或多或少都藏著一個特別的人。也許是那個下課趴在桌上睡覺的隔壁班同學，或是放學在熱音社教室裡抱著電吉他專注彈奏的學長。看著他笑起來的虎牙，默默在 Threads 上關注他的日常碎碎唸，心裡總是充滿了酸甜的滋味 🥺。</p><p>隨著學期末社團發表會的臨近，許多同學都在糾結：到底要不要趁這個機會，送上一張手繪卡片或小禮物，向對方表明心意？但又無比害怕一旦被拒絕，在學校見面會無比尷尬...</p><h3>💡 關於暗戀的勇氣指南</h3><ul><li><strong>把告白當作「表達感謝」而非「強求結果」：</strong>告白的本質，是告訴對方：「謝謝你的存在，讓我的青春多了一抹亮麗的風景。」這樣想的話，你的得失心會減輕許多，對方接收時也不會有太大的壓力。</li><li><strong>手寫卡片是最真誠的溫度：</strong>不需要華麗的禮物，一張簡單乾淨的手寫卡片，寫下他的努力與你對他的欣賞，就足以在對方心中留下溫暖的印記。</li><li><strong>無論結果如何，你都無比勇敢：</strong>敢於跨出舒適圈、表達自己愛意的人，本身就閃閃發光。即使沒有開花結果，這份為了喜歡的人而努力變好的自己，也是青春最棒的收穫。</li></ul>',
+    author: 'Pandimo 官方專欄',
     readTime: '3 分鐘',
-    likes: 145,
+    likes: 312,
     img: 'https://images.unsplash.com/photo-1511295742364-5a9b725df7f0?auto=format&fit=crop&w=400&q=80'
   }
 ];
@@ -179,7 +184,12 @@ const DEFAULT_STORE_ITEMS = [
 // App State Core Class
 class AppState {
   constructor() {
-    this.appName = localStorage.getItem('teen_app_name') || '心晴日記';
+    let storedName = localStorage.getItem('teen_app_name');
+    if (!storedName || storedName === '心晴日記') {
+      storedName = 'Pandimo';
+      localStorage.setItem('teen_app_name', 'Pandimo');
+    }
+    this.appName = storedName;
     this.points = parseInt(localStorage.getItem('teen_points')) || 320; // Default starts at 320 to allow instant testing of 300 pt unlock!
     this.theme = localStorage.getItem('teen_theme') || 'light';
     this.diaries = JSON.parse(localStorage.getItem('teen_diaries')) || [];
@@ -203,34 +213,33 @@ class AppState {
     // Read redeemed store items
     this.redeemedItems = JSON.parse(localStorage.getItem('teen_redeemed_items')) || [];
 
-    // Seed 3 Months diaries if completely empty!
-    if (this.diaries.length === 0) {
+    // Seed 3 Months diaries if completely empty or migrating to organic gaps
+    if (this.diaries.length === 0 || !localStorage.getItem('teen_diaries_has_gaps')) {
       this.diaries = generateThreeMonthsOfDiaries();
       localStorage.setItem('teen_diaries', JSON.stringify(this.diaries));
+      localStorage.setItem('teen_diaries_has_gaps', 'true');
     }
 
-    // Read comments or seed them
-    this.articleComments = JSON.parse(localStorage.getItem('teen_article_comments')) || {};
-    if (Object.keys(this.articleComments).length === 0) {
-      this.articleComments = {
-        'a1': [
-          { name: '躲在棉被裡的北極熊', color: '#ffd35c', text: '段考排名出來真的會自卑到想哭，而且看Threads上漂亮的女生，真的會自卑到只敢戴口罩上學...😭', time: '1小時前' },
-          { name: '期末考求過的水豚', color: '#ff85a2', text: '我也是！成績跟長相雙重打擊，每次考差了就覺得自己長得又普通，為什麼世界這麼不公平。', time: '40分鐘前' },
-          { name: '渴望放假的貓咪', color: '#8a7cfb', text: '抱抱原PO，其實很多班上好看的人也是戴口罩、用濾鏡，我們不要拿別人的完美精選來比自己的日常！', time: '10分鐘前' }
-        ],
-        'a2': [
-          { name: '數學課在睡覺的熊貓', color: '#4be3b5', text: '暑輔每天去吹冷氣真的超級浪費生命！我們學校老師也只是一直趕進度，好想去打工買手帳文具 😑', time: '2小時前' },
-          { name: '一口氣吃掉珍奶的企鵝', color: '#6c5ce7', text: '推！我去年也是請了半個月暑輔去飲料店打工，雖然累但自己賺錢花真的很爽，比在學校發呆好多了！', time: '1.5小時前' },
-          { name: '拿著珍奶跑百米的小鹿', color: '#e84393', text: '如果主科快被當掉，建議還是乖乖去暑輔...不然開學重修要付重修費更心痛 😭', time: '5分鐘前' }
-        ],
-        'a3': [
-          { name: '被考試砸醒的樹懶', color: '#ff9f5c', text: '衝了啦！熱音社學長彈吉他真的帥爆，寫卡片給他一定會加分！青春不要留遺憾 💖', time: '3小時前' },
-          { name: '吃飽就犯睏的考拉', color: '#ff7474', text: '手繪卡片超有誠意的，就算沒在一起他也會覺得很溫暖！支持原PO勇敢衝一波！', time: '1小時前' },
-          { name: '忘記帶鉛筆盒的松鼠', color: '#8a7cfb', text: '天啊這根本是純愛偶像劇吧 😭 幫原PO集氣，一定要上來更新後續喔！', time: '15分鐘前' }
-        ]
-      };
-      localStorage.setItem('teen_article_comments', JSON.stringify(this.articleComments));
-    }
+    // Seed new authentic, funny, and realistic high-schooler comments
+    this.articleComments = {
+      'a1': [
+        { name: '數學課睡覺的熊貓', color: '#4be3b5', text: '笑死，我早就放棄排名的東西了，每天睡飽才是真的，大家到底在焦慮三小 😂', time: '1小時前' },
+        { name: '躲在棉被裡的北極熊', color: '#ffd35c', text: '說得好...戴口罩真的是安全感來源，不戴出門超躁的，Threads上一堆神仙顏值真的越看越自卑...😭', time: '40分鐘前' },
+        { name: '期末考求過的水豚', color: '#ff85a2', text: '哭啊，我爸媽只會拿我跟親戚的小孩比，皮膚爛又考不好，真的直接躺平了啦 QQ', time: '20分鐘前' },
+        { name: '渴望放假的貓咪', color: '#8a7cfb', text: '其實這篇說得很對耶，社團裡好看的女生私底下也是用濾鏡遮痘痘，大家不用太焦慮啦，抱一個 🫂', time: '5分鐘前' }
+      ],
+      'a2': [
+        { name: '拿珍奶跑百米的小鹿', color: '#ff9f5c', text: '暑輔真的超爛，學校只會壓榨學生，我都直接請假請爆去打工，錢拿在手裡比較香啦 💸', time: '2小時前' },
+        { name: '一口珍奶的企鵝', color: '#6c5ce7', text: '如果怕被重修卡死還是要去一下吧，重修費超貴，打工賺的錢都不夠付，到時候哭都沒眼淚 😭', time: '1.5小時前' },
+        { name: '吃飽就犯睏的考拉', color: '#ff7474', text: '笑爛，去暑輔都在睡覺吹冷氣，打工超累根本地獄，除非你想買手帳或機車不然真的先不要', time: '10分鐘前' }
+      ],
+      'a3': [
+        { name: '被考試砸醒的樹懶', color: '#4be3b5', text: '學長我有看過，其實長得蠻普的啊，到底在暈幾點的 XD 可是彈吉他確實有一點帥啦', time: '3小時前' },
+        { name: '忘記鉛筆盒的松鼠', color: '#8a7cfb', text: '卡一個後續！這根本偶像劇吧，如果是我連卡片都不敢送，直接在台下當小透明 555', time: '1小時前' },
+        { name: '北極星下的流浪貓', color: '#ffd35c', text: '衝了啦！大不了一輩子尷尬，青春就是要不留遺憾，手寫卡片真的超有溫度，學長收到一定超開心！', time: '15分鐘前' }
+      ]
+    };
+    localStorage.setItem('teen_article_comments', JSON.stringify(this.articleComments));
   }
 
   save() {
@@ -340,7 +349,7 @@ class AppState {
 
   resetData() {
     localStorage.clear();
-    this.appName = '心晴日記';
+    this.appName = 'Pandimo';
     this.points = 320;
     this.theme = 'light';
     this.lastCheckInDate = '';
@@ -350,6 +359,7 @@ class AppState {
     this.chatSessionType = 'free';
     this.currentChatMode = 'ai';
     this.diaries = generateThreeMonthsOfDiaries(); // Seeded automatically
+    localStorage.setItem('teen_diaries_has_gaps', 'true');
     this.likedArticles = [];
     this.bookmarkedArticles = [];
     this.redeemedItems = [];
@@ -550,7 +560,7 @@ function setupSidebarControls() {
   const appNameInput = document.getElementById('admin-app-name');
   if (appNameInput) {
     appNameInput.addEventListener('input', (e) => {
-      state.appName = e.target.value.trim() || '心晴日記';
+      state.appName = e.target.value.trim() || 'Pandimo';
       state.save();
       updateAppHeaders();
     });
@@ -1037,19 +1047,7 @@ function renderHistoryLogs() {
 
 
 // --- ARTICLES PAGE LOGIC ---
-let activeArticleTab = 'all';
-
 function initArticlesPage() {
-  const tabs = document.querySelectorAll('.article-tab-pill');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      activeArticleTab = tab.getAttribute('data-category');
-      renderArticles();
-    });
-  });
-
   const searchInput = document.getElementById('article-search');
   if (searchInput) {
     searchInput.addEventListener('input', () => {
@@ -1075,9 +1073,7 @@ function renderArticles() {
   const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
 
   const filtered = DEFAULT_ARTICLES.filter(art => {
-    const matchesTab = activeArticleTab === 'all' || art.category === activeArticleTab;
-    const matchesQuery = art.title.toLowerCase().includes(query) || art.snippet.toLowerCase().includes(query);
-    return matchesTab && matchesQuery;
+    return art.title.toLowerCase().includes(query) || art.snippet.toLowerCase().includes(query);
   });
 
   filtered.forEach(art => {
@@ -1090,18 +1086,12 @@ function renderArticles() {
     card.innerHTML = `
       <div class="article-cover">
         <img src="${art.img}" alt="cover">
-        <span class="article-badge">${art.category}</span>
       </div>
       <div class="article-card-body">
-        ${art.badge ? `<span class="article-bigdata-tag">${art.badge}</span>` : ''}
         <h3 class="article-card-title">${art.title}</h3>
         <p class="article-card-snippet">${art.snippet}</p>
-        ${art.bigDataLabel ? `<div class="article-bigdata-analysis">${art.bigDataLabel}</div>` : ''}
         <div class="article-card-footer">
-          <div class="article-author-info">
-            <div class="article-author-avatar"></div>
-            <span>${art.author}</span>
-          </div>
+          <span style="font-size: 11px; color: var(--text-secondary); font-weight: 500;">⏱️ ${art.readTime} 閱讀</span>
           <div class="article-actions-box">
             <button class="article-btn-icon btn-like ${isLiked ? 'liked' : ''}" data-id="${art.id}">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
@@ -1158,11 +1148,7 @@ function openArticleDrawer(art) {
     body.innerHTML = `
       <img src="${art.img}" class="article-detail-img" alt="cover">
       <div class="article-detail-meta">
-        <span>分類：${art.category}</span>
-        <span>•</span>
-        <span>${art.readTime} 閱讀</span>
-        <span>•</span>
-        <span>撰文：${art.author}</span>
+        <span>⏱️ ${art.readTime} 閱讀</span>
       </div>
       <h2 class="article-detail-title">${art.title}</h2>
       <div class="article-detail-content">${art.content}</div>
@@ -1170,8 +1156,7 @@ function openArticleDrawer(art) {
       <hr class="drawer-divider">
       
       <div class="anonymous-discussion-section">
-        <h3>💬 匿名討論區 (全校匿名交流)</h3>
-        <p class="anonymous-section-desc">🔒 本區受匿名密鑰保護，為本校同學提供專屬樹洞，請放心傾訴並友善交流喔！</p>
+        <h3>討論區</h3>
         
         <div class="comments-list" id="article-comments-list">
           <!-- Comments list -->
@@ -1312,7 +1297,7 @@ function initChatPage() {
         renderChatRoomView();
         startSessionTimer();
         flashDynamicIsland('🎁 已開啟 40 分鐘免費聊天對話！');
-        appendChatBubble('bot', '嗨！我是你的心情陪伴吉祥物晴晴 🐼✨ 這邊是你的專屬匿名樹洞喔。今天學校有發生什麼有趣或討厭的事嗎？段考、暑輔、人際關係或是純粹想碎碎唸都可以跟我說喔！🌸');
+        appendChatBubble('bot', '嗨！我是 Pandimo 🐼✨ 這裡是你專屬的溫暖空間。今天生活過得怎麼樣呢？段考、暑輔、人際關係或是任何想碎碎唸的瑣事，都可以隨時跟我聊聊喔！🌸');
       }
     });
   }
@@ -1331,7 +1316,7 @@ function initChatPage() {
         startSessionTimer();
         triggerCoinExplosion(e.target);
         flashDynamicIsland('🔑 成功消耗 300 積分開啟聊聊對話！');
-        appendChatBubble('bot', '謝謝你用積分支持晴晴 🐼💖 晴晴已經泡好熱可可，準備好聽你吐苦水了！今天學校或生活中有遇到什麼讓你覺得爛透了的事，或者是有什麼不敢跟爸媽說的祕密嗎？儘管跟我說吧！✨');
+        appendChatBubble('bot', '謝謝你用積分支持 Pandimo 🐼💖 我已經泡好了熱可可，準備好聽你吐苦水了！今天生活中有遇到什麼讓你覺得煩惱的事，或者有什麼不敢跟爸媽說的秘密嗎？儘管跟我聊聊吧！✨');
       }
     });
   }
@@ -1449,7 +1434,7 @@ function appendChatBubble(sender, text, isCustomHtml = false) {
   } else {
     // Normal AI Companion Bot
     bubbleRow.innerHTML = `
-      <div class="chat-avatar">晴</div>
+      <div class="chat-avatar">🐼</div>
       <div class="chat-bubble">
         <div>${text}</div>
         <div class="chat-time">${timeStr}</div>
@@ -1466,7 +1451,7 @@ function generateVolunteerReply(userMsg) {
   const msg = userMsg.toLowerCase();
   
   if (msg.includes('累') || msg.includes('功課') || msg.includes('課業') || msg.includes('段考') || msg.includes('成績') || msg.includes('當掉') || msg.includes('爛透了') || msg.includes('壓力')) {
-    return `聽到你說壓力大，我真的好心疼喔 😭 高中的課業跟排名壓力真的超級沉重。沒關係，我們現在先把書本和排名放一邊，好好放空休息一下，晴晴志工會一直在這裡陪著你！`;
+    return `聽到你說壓力大，我真的好心疼喔 😭 高中的課業跟排名壓力真的超級沉重。沒關係，我們現在先把書本和排名放一邊，好好放空休息一下，陪伴志工會一直在這裡陪著你！`;
   }
   
   if (msg.includes('謝謝') || msg.includes('好多了')) {
@@ -1482,24 +1467,24 @@ function generateBotReply(userMsg) {
   const latestMood = latestDiary ? latestDiary.mood : 'none';
 
   if (msg.includes('心情超棒') || msg.includes('高興') || msg.includes('開心') || msg.includes('讚') || msg.includes('水喔')) {
-    return `太棒了！看到你今天心情這麼好，晴晴也超開心的！🌟 趕快把這個好心情記錄在今天的日記裡，以後被段考折磨的時候可以拿出來回味一下哈哈！✨`;
+    return `太棒了！看到你今天心情這麼好，Pandimo 也超開心的！🌟 趕快把這個好心情記錄在今天的日記裡，以後被段考折磨的時候可以拿出來回味一下哈哈！✨`;
   }
 
   if (msg.includes('推薦') || msg.includes('做什麼') || msg.includes('提議') || msg.includes('去哪')) {
     if (latestMood === 'cool' || latestMood === 'good') {
-      return `既然今天心情美美的，晴晴推薦你：\n1. 放學去麥當勞吃大薯加冰炫風 🍟\n2. 滑滑 Threads 看看搞笑脆文 📱\n3. 聽一首最愛的熱音社搖滾歌！`;
+      return `既然今天心情美美的，Pandimo 推薦你：\n1. 放學去麥當勞吃大薯加冰炫風 🍟\n2. 滑滑 Threads 看看搞笑脆文 📱\n3. 聽一首最愛的熱音社搖滾歌！`;
     } else if (latestMood === 'bad' || latestMood === 'awful' || msg.includes('爛透了') || msg.includes('難過')) {
-      return `嗚嗚，今天辛苦你了 🥺 晴晴推薦你今天對自己好一點：\n1. 嚼一包哈瑞寶小熊軟糖，嚼碎所有不開心 🧸\n2. 洗個熱水澡，提早半小時上床躺平滑手機（但不要滑太晚喔）\n3. 聽一首溫柔的歌，對自己說聲「辛苦了」！`;
+      return `嗚嗚，今天辛苦你了 🥺 Pandimo 推薦你今天對自己好一點：\n1. 嚼一包哈瑞寶小熊軟糖，嚼碎所有不開心 🧸\n2. 洗個熱水澡，提早半小時上床躺平滑手機（但不要滑太晚喔）\n3. 聽一首溫柔的歌，對自己說聲「辛苦了」！`;
     } else {
       return `現在的你適合一次短暫的充電喔！建議可以喝杯手搖杯，或者趴在課桌上瞇個 10 分鐘，讓辛苦的大腦放假一下。`;
     }
   }
 
   if (msg.includes('爛透了') || msg.includes('傷心') || msg.includes('難過') || msg.includes('差勁') || msg.includes('焦慮')) {
-    return `拍拍你，今天真的辛苦了...🥺 無論是考試考差、被家長唸，還是感情暈船不順，晴晴都會在這裡陪你。今晚要不要吃點零食，早點休息呢？晴晴給你一個大大的抱抱 🐼💗`;
+    return `拍拍你，今天真的辛苦了...🥺 無論是考試考差、被家長唸，還是感情暈船不順，Pandimo 都會在這裡陪你。今晚要不要吃點零食，早點休息呢？給你一個大大的抱抱 🐼💗`;
   }
 
-  return `聽你分享生活真好！寫字能幫我們把課業跟人際的煩惱都整理乾淨。無論是開心的日常還是碎碎唸，晴晴都會是最懂你的樹洞。今天學校有什麼八卦或好玩的事嗎？✍️`;
+  return `聽你分享生活真好！寫字能幫我們把課業跟人際的煩惱都整理乾淨。無論是開心的日常還是碎碎唸，Pandimo 都會是最懂你的溫暖空間。今天學校有什麼八卦或好玩的事嗎？✍️`;
 }
 
 function showTypingIndicator() {
@@ -1511,7 +1496,7 @@ function showTypingIndicator() {
   typingRow.className = 'chat-bubble-row bot';
   
   // Set avatar name based on mode
-  const name = state.currentChatMode === 'volunteer' ? '天使' : '晴';
+  const name = state.currentChatMode === 'volunteer' ? '天使' : '🐼';
   const style = state.currentChatMode === 'volunteer' ? 'background-color: var(--accent-light); color: var(--accent-dark);' : '';
 
   typingRow.innerHTML = `
@@ -1582,17 +1567,17 @@ function triggerCounselingMatcherFlow() {
   const distressMsg = `
     <div style="background-color: var(--bg-tertiary); border: 1.5px solid var(--border-color); border-radius: 16px; padding: 14px; margin: 10px 0; box-shadow: var(--shadow-sm);">
       <p style="font-weight: 700; color: var(--accent-dark); font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-        💗 晴晴極致關懷通知
+        💗 Pandimo 溫暖關懷通知
       </p>
       <p style="font-size: 12px; color: var(--text-primary); line-height: 1.6; margin-bottom: 12px;">
-        晴晴注意到你現在可能正承受著沉重的心理壓力...（輕抱你）雖然晴晴會一直在這裡聽你說，但我是一個 AI，無法代替真實的人情溫暖。
+        Pandimo 注意到你現在可能正承受著沉重的心理壓力...（輕抱你）雖然我會一直在這裡聽你說，但我是一個 AI，無法代替真實的人情溫暖。
         <br><br>
         <strong>你願意讓專業的【線上匿名心理輔導志工】或【預約諮商師】陪你聊聊嗎？</strong> 整個連線過程全程匿名，並且絕對為您保密。
       </p>
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <button class="btn btn-accent" id="btn-match-volunteer" style="font-size:12px; padding:8px 12px; font-weight:700;">🌟 開啟匿名真人志工聊聊</button>
         <button class="btn btn-primary" id="btn-match-counselor" style="font-size:12px; padding:8px 12px; font-weight:700;">🌿 預約一對一心理諮商</button>
-        <button class="btn btn-secondary" id="btn-match-decline" style="font-size:11px; padding:6px 12px;">我再想想，先跟晴晴聊</button>
+        <button class="btn btn-secondary" id="btn-match-decline" style="font-size:11px; padding:6px 12px;">我再想想，先跟 Pandimo 聊</button>
       </div>
     </div>
   `;
@@ -1629,13 +1614,13 @@ function triggerCounselingMatcherFlow() {
     if (counselorBtn) {
       counselorBtn.addEventListener('click', () => {
         alert('🌿 預約專人心理諮商：\n系統已連線至您的學校學生心理輔導室。稍後將有專業諮商輔導老師透過校內信件聯絡您，並為您排定免費諮商晤談。請您放心，此預約完全保密！❤️');
-        appendChatBubble('bot', '晴晴已幫您連線學生輔導中心預約申請！別擔心，老師們人都很好喔。在他們聯絡你之前，晴晴隨時在這聽你傾訴。🍵');
+        appendChatBubble('bot', 'Pandimo 已幫您連線學生輔導中心預約申請！別擔心，老師們人都很好喔。在他們聯絡你之前，我隨時在這聽你傾訴。🍵');
       });
     }
 
     if (declineBtn) {
       declineBtn.addEventListener('click', () => {
-        appendChatBubble('bot', '好的，晴晴會一直守候在你的手機裡，隨時隨地傾聽你。如果你覺得累了或想找人說說話，隨時點擊連線喔。來做個深呼吸吧，呼...吸... 🍃');
+        appendChatBubble('bot', '好的，Pandimo 會一直守候在你的手機裡，隨時隨地傾聽你。如果你覺得累了或想找人說說話，隨時點擊連線喔。來做個深呼吸吧，呼...吸... 🍃');
       });
     }
   }, 100);
