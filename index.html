@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>心晴日記 - 手機 APP 原型框架</title>
   <meta name="description" content="這是一個專為心情日記、情緒護理與生活習慣打卡設計的手機 App 高保真原型框架，支援電腦瀏覽器測試，預配置 Capacitor 打包環境。">
-  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/style.css?v=3">
 </head>
 <body>
 
@@ -101,22 +101,22 @@ npx cap sync</div>
       <!-- Phone Screen Mockup -->
       <div class="phone-screen" id="phone-screen-container">
         
-        <!-- App Splash Screen Cover (Mascot Theme) -->
-        <div id="app-splash-screen" class="app-splash-screen">
+        <!-- App Splash Screen Cover (Mascot Theme) with Defensive Inline Styles -->
+        <div id="app-splash-screen" class="app-splash-screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #f7f6ff 0%, #e8e5ff 100%); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 80px 24px 40px 24px; box-sizing: border-box; overflow: hidden;">
           <div class="splash-glow"></div>
-          <div class="splash-body">
-            <div class="splash-logo-container">
-              <img src="src/panda_mascot.png" class="splash-panda-logo" alt="Panda Mascot">
+          <div class="splash-body" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%;">
+            <div class="splash-logo-container" style="width: 160px; height: 160px; border-radius: 36px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-sizing: border-box; background: #fff; border: 1.5px solid #e5e2f3; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(138, 124, 251, 0.15);">
+              <img src="src/panda_mascot.png" class="splash-panda-logo" alt="Panda Mascot" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <h2 class="splash-app-name">心晴日記</h2>
-            <p class="splash-slogan">🐼 你的溫柔樹洞與情緒陪伴 官方吉祥物 💗</p>
-            <div class="splash-loading-dots">
+            <h2 class="splash-app-name" style="font-size: 24px; font-weight: 800; margin-bottom: 8px; font-family: sans-serif;">心晴日記</h2>
+            <p class="splash-slogan" style="font-size: 12px; font-weight: 600; margin-bottom: 30px; font-family: sans-serif;">🐼 青春樹洞與情緒陪伴吉祥物 💗</p>
+            <div class="splash-loading-dots" style="display: flex; gap: 6px;">
               <div class="splash-dot"></div>
               <div class="splash-dot"></div>
               <div class="splash-dot"></div>
             </div>
           </div>
-          <div class="splash-footer">
+          <div class="splash-footer" style="font-size: 10px; font-weight: 600; letter-spacing: 0.5px; opacity: 0.7;">
             <span>Powered by AI & Big Data Analytics</span>
           </div>
         </div>
@@ -295,25 +295,25 @@ npx cap sync</div>
             <!-- Search block -->
             <div class="search-bar-container">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input type="text" id="article-search" class="search-input" placeholder="搜尋放鬆、心理自愈等文章...">
+              <input type="text" id="article-search" class="search-input" placeholder="搜尋段考、暑假、學長等話題...">
             </div>
 
-            <!-- Big Data Analytics Header Banner -->
+            <!-- Dcard-style student board banner -->
             <div class="articles-bigdata-banner">
               <div class="bigdata-banner-glow"></div>
               <div class="bigdata-banner-content">
-                <span class="bigdata-badge">✨ 本週焦點推薦</span>
-                <h3>今天的你，需要怎樣的溫柔力量？</h3>
-                <p>傾聽大家的生活步調，為你精選的放鬆引導與溫暖文章。願你能在這裡找到一絲平靜。☕</p>
+                <span class="bigdata-badge">🔥 Dcard 高中板精選</span>
+                <h3>今日全校討論度最高的熱議主題</h3>
+                <p>基於大家近期最關心的生活節奏：段考、暑輔、容貌焦慮與人際暗戀，精選出本週討論度破表的熱門貼文。💬</p>
               </div>
             </div>
 
             <!-- Horizontal Scroll category tabs -->
             <div class="article-tags-scroll">
-              <button class="article-tab-pill" data-category="all">全部文章</button>
-              <button class="article-tab-pill" data-category="心靈成長">🌱 心靈成長</button>
-              <button class="article-tab-pill" data-category="情緒護理">🧘 情緒護理</button>
-              <button class="article-tab-pill" data-category="睡眠健康">😴 睡眠健康</button>
+              <button class="article-tab-pill" data-category="all">全部討論</button>
+              <button class="article-tab-pill" data-category="課業焦慮">🏫 課業焦慮</button>
+              <button class="article-tab-pill" data-category="容貌焦慮">💄 容貌焦慮</button>
+              <button class="article-tab-pill" data-category="感情告白">💖 感情告白</button>
             </div>
 
             <!-- Feed list grid -->
@@ -515,6 +515,6 @@ npx cap sync</div>
     </div>
   </div>
 
-  <script src="src/app.js"></script>
+  <script src="src/app.js?v=3"></script>
 </body>
 </html>
