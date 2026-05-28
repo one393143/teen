@@ -395,6 +395,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Default Page routing
   switchPage('diary');
+
+  // Fade out splash screen after 3 seconds (3000ms)
+  setTimeout(() => {
+    const splashScreen = document.getElementById('app-splash-screen');
+    if (splashScreen) {
+      splashScreen.classList.add('fade-out');
+      setTimeout(() => {
+        splashScreen.style.display = 'none';
+      }, 600); // Wait for transition opacity animation to complete
+    }
+  }, 3000);
 });
 
 // Update Phone Clock
